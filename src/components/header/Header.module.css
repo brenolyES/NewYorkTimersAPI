@@ -1,0 +1,46 @@
+.body {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoImg {
+  margin-left: 10px;
+  width: 30px;
+}
+
+.title{
+  margin-left: 10px;
+  color: rgb(223, 223, 223);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.rigth {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul, li {
+  display: inline;
+}
+
+li {
+  margin-right: 10px;
+}
+
+ul li a:hover {
+  color: #dbdbdb;
+  border-bottom:3px solid #ffffff;
+}
