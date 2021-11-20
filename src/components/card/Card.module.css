@@ -1,12 +1,15 @@
 .card {
   display: flex;
-  align-content: center;
-  justify-content: center;
   align-items: center;
   width: 80%;
   margin: 20px auto;
   background-color: rgb(233, 233, 233);
   border-radius: 20px;
+}
+
+.card:hover {
+  background-color: rgb(206, 206, 206);
+  cursor: pointer;
 }
 
 .left {
@@ -17,6 +20,10 @@
   min-width: 200px;
   height: 100px;
   margin: 10px;
+}
+
+.left img {
+  border-radius: 20px;
 }
 
 .rigth {

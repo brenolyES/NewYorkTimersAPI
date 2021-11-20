@@ -1,4 +1,6 @@
-a {
-  text-decoration: none;
-  color: white;
+.modified {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  padding: 2px 5px;
+  font-weight: bold;
 }

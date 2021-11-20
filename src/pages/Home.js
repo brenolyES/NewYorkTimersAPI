@@ -1,28 +1,49 @@
 import Card from '../components/card/Card'
 import { useEffect, useContext } from "react";
-import {ApiKey, AxioApi} from '../Api';
+import { ApiKey, AxioApi } from '../Api';
 import { ApiContext } from '../context/ApiContext';
+import '../pages/Global.css'
+import Loading from '../components/loading/Loading';
+
 
 const Home = () => {
 
-  const { category, list, setList } = useContext(ApiContext);
+  const { list, setList, loading, setLoading, setActiveLink } = useContext(ApiContext);
+  const category = 'home'
 
-  
   useEffect(() => {
+    setLoading(true);
     (async () => {
       const { data } = await AxioApi.get(`/${category}.json?api-key=${ApiKey}`)
       setList(data.results);
+      setLoading(false);
+      setActiveLink('home')
     })()
   }, [])
-  
-  console.log(list)
 
   return (
     <div className='body'>
       <h1 className='title'>Página Inicial</h1>
-      <section>
-        <Card />
-      </section>
+      {loading ? <Loading/> : 
+       <section>
+       {
+         list.length ? list.map((e, index) => {
+           return (
+             e.title ?
+               <Card
+                 key={index}
+                 title={e.title}
+                 byline={e.byline}
+                 abstract={e.abstract}
+                 imgTitle={e.multimedia && e.multimedia[0].copyright}
+                 url={e.multimedia && e.multimedia[0].url}
+               /> : null
+           );
+         })
+           : <div>Sem Noticias</div>
+       }
+     </section>
+      }
     </div>
   )
 }

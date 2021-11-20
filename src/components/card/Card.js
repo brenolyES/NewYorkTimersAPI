@@ -1,22 +1,21 @@
 import styles from '../card/Card.module.css'
 
-const Card = () => {
+const Card = ({title, byline, abstract, url, imgTitle}) => {
   return (
     <div className={styles.body}>
       <div className={styles.card}>
         <div className={styles.left}>
-          <img src="" alt="Img" />
+          {url ? <img src={url} width='200px' height='100px' alt={imgTitle}/> : <p>sem imagem</p>}
         </div>
         <div className={styles.rigth}>
           <div>
-            <h2>Titulo da noticia{}</h2>
+            {title ? <h3>{title}</h3> : <h3>Sem titulo</h3>}
           </div>
           <div>
-            <strong>Autor da noticia{}</strong>
+            {byline ? <strong>{byline}</strong> : <div>Sem byline</div>}
           </div>
           <div>
-            {/* <p>Descriçao da noticiasssssssssssssssssssssssssssss</p> */}
-            <p>Descriçao da noticia{}</p>
+            {abstract ? <p>{abstract}</p> : <div>Sem abstract</div>}
           </div>
         </div>
       </div>
